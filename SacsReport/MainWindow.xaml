@@ -1,0 +1,50 @@
+﻿<Window x:Class="SacsReport.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dti="clr-namespace:SGAI.xOrigin;assembly=xDateTimeInputControl"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SacsReport"
+        mc:Ignorable="d"
+        Title="导出历史数据" Height="600" Width="800" Background="Black">
+    <Grid>
+        <CheckBox Content="1#内燃炉" IsChecked="{Binding StoveToExport[1]}" Foreground="Yellow" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" >
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="5" ScaleY="5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Content="2#内燃炉" IsChecked="{Binding StoveToExport[2]}" Foreground="Yellow" HorizontalAlignment="Left" Margin="400,12,0,0" VerticalAlignment="Top" >
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="5" ScaleY="5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Content="3#内燃炉" IsChecked="{Binding StoveToExport[3]}" Foreground="Yellow" HorizontalAlignment="Left" Margin="12,112,0,0" VerticalAlignment="Top" >
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="5" ScaleY="5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Content="4#内燃炉" IsChecked="{Binding StoveToExport[4]}" Foreground="Yellow" HorizontalAlignment="Left" Margin="400,112,0,0" VerticalAlignment="Top" >
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="5" ScaleY="5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Content="1#预热炉" IsChecked="{Binding StoveToExport[5]}" Foreground="Yellow" HorizontalAlignment="Left" Margin="12,212,0,0" VerticalAlignment="Top" >
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="5" ScaleY="5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Content="2#预热炉" IsChecked="{Binding StoveToExport[6]}" Foreground="Yellow" HorizontalAlignment="Left" Margin="400,212,0,0" VerticalAlignment="Top">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="5" ScaleY="5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <Label Content="开始时间：" FontSize="{Binding FontSize_L}" Foreground="Yellow" Margin="10,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+        <dti:DateTimePicker FontSize="{Binding FontSize_L}" Format="Custom" CustomFormat="yyyy-MM-dd HH:mm:ss" Value="{Binding StartTime, UpdateSourceTrigger=LostFocus,Mode=TwoWay}" Margin="270,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></dti:DateTimePicker>
+        <Label Content="截至时间：" FontSize="{Binding FontSize_L}" Foreground="Yellow" Margin="10,400,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+        <dti:DateTimePicker FontSize="{Binding FontSize_L}" Format="Custom" CustomFormat="yyyy-MM-dd HH:mm:ss" Value="{Binding EndTime, UpdateSourceTrigger=LostFocus,Mode=TwoWay}" Margin="270,400,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></dti:DateTimePicker>
+        <Button Command="{Binding CmdGenerateReport}" FontSize="{Binding FontSize_L}" Content="导出数据" HorizontalAlignment="Left" Margin="560,500,0,0" VerticalAlignment="Top" />
+        <TextBox Text="{Binding PBMax}" HorizontalAlignment="Left" Margin="420,500,0,0" VerticalAlignment="Top" Width="50" Height="40"></TextBox>
+        <TextBox Text="{Binding PBValue}" HorizontalAlignment="Left" Margin="500,500,0,0" VerticalAlignment="Top" Width="50" Height="40"></TextBox>
+        <ProgressBar Visibility="{Binding PBVisibility}" Value="{Binding PBValue}" Maximum="{Binding PBMax}" Height="50" HorizontalAlignment="Left" Margin="10,500,0,0" VerticalAlignment="Top" Width="400" />
+    </Grid>
+</Window>
